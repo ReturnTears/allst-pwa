@@ -41,6 +41,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     从Hybrid到PWA，从封闭到开放
 
 🍒 PWA特征
+    安全、可靠、粘性
     🍑 渐进增强
     🍑 响应式用户界面
     🍑 不依赖网络连接
@@ -54,7 +55,16 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 🍎 PWA相关技术介绍
 🍒 Web App Manifest
+    有唯一的图标和名称来与其他站点区分
+    控制从主屏幕启动时的内容， 避免生硬的过渡
+    隐藏浏览器相关的UI
+
 🍒 Service Worker
+    浏览器再后台独立于网页运行的脚本
+    拦截和处理网络请求，操作缓存
+    支持Push API
+    后台同步 & 更新缓存
+
     🍓 Service Worker 简介
     背景：如何让网页的用户体验做到极致
     随着 Web 的快速发展，用户对站点的体验期望值越来越高，想要让自己的产品在无数产品中脱颖而出，就必须提升产品的性能和体验。
@@ -92,8 +102,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     在你的 Service Worker 注册成功之后呢，我们的浏览器中已经有了一个属于你自己 web App 的 worker context 啦， 在此时，浏览器就会马不停蹄的尝试为你的站点里面的页面安装并激活它，并且在这里可以把静态资源的缓存给办了。
     install 事件我们会绑定在 Service Worker 文件中，在 Service Worker 安装成功后，install 事件被触发。
     install 事件一般是被用来填充你的浏览器的离线缓存能力。为了达成这个目的，我们使用了 Service Worker 新的标志性的存储 cache API — 一个 Service Worker 上的全局对象，它使我们可以存储网络响应发来的资源，并且根据它们的请求来生成key。这个 API 和浏览器的标准的缓存工作原理很相似，但是是只对应你的站点的域的。它会一直持久存在，直到你告诉它不再存储，你拥有全部的控制权。
-    
-🍒 Push Notification
+
+🍒 Push Api & Notification Api
+
+🍒 App Shell & App Skeleton
+
 🍒 相关Other API
 
 ```
