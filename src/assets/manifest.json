@@ -1,0 +1,9 @@
+{
+    "name": "My PWA Lession",
+    "shaort_name": "PWD Lession",
+    "display": "standalone",
+    "start_url": "/",
+    "icons": [],
+    "background-color": "#fff000",
+    "theme-color": ""
+}
