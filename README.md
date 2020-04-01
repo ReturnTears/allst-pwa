@@ -119,4 +119,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 First Chapter 渐进式Web应用介绍
 渐进式Web应用是是一种崭新的Web应用，它结合了原生应用的优点和Web少冲突的特点
 
+任何渐进式Web应用的核心就是 service worker 技术。
+service worker是一种脚本，可以通过注册他来控制你站点中的一个或多个页面。一旦安装完毕，
+service worker就会独立存在，而不是属于某个浏览器窗口或者标签页。
+service worker可以监听并响应在其控制之下的所有页面的事件。
+
 ```
