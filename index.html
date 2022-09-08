@@ -10,4 +10,12 @@
     <h1>第一个PWA</h1>
     <div id="app"></div>
   </body>
+  <script type="module">
+    navigator.serviceWorker.register("./src/static/sw.js")
+    .then(() => {
+      console.log('sw.js 注册成功')
+    }).catch(e => {
+      console.log('sw.js 注册失败', e)
+    })
+  </script>
 </html>
