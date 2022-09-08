@@ -127,7 +127,15 @@ service worker可以监听并响应在其控制之下的所有页面的事件。
 🍎 渐进增强
 
 🍎 Https和service worker
-
+    PWA必须运行在HTTPS环境或者127.0.0.1的本地服务环境下，所以在开发、测试的过程中需要有一个本地的HTTP Server，这里建议使用http-server，
+    它是一个基于Node.js环境的简单、零配置的HTTP Server命令行工具。
+    1、全局安装
+        npm install -g http-server
+    2、运行http-server
+        命令行：http-server
+    3、编写一个简单的index.html页面
+        浏览器访问：http://localhost:8080/#/
+    
 🍎 从web获取内容
     fetch方法的第一个参数是强制必传的， 可以包含一个request对象，也可以包含一个相对路径或者绝对路径的URL字符串。第二个参数是可选的，可以包含一个对象，里面是请求的选项。
 🍎 捕获离线请求
