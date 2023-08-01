@@ -133,13 +133,28 @@ service worker可以监听并响应在其控制之下的所有页面的事件。
         npm install -g http-server
     2、运行http-server
         命令行：http-server
-    3、编写一个简单的index.html页面
-        浏览器访问：http://localhost:8080/#/
     
-    注册service worker
+    第一个PWA
+    1、创建首页，编写一个简单的index.html页面
+        浏览器访问：http://localhost:8080/#/
+    2、注册service worker
         Service Worker是PWA的核心，PWA的大部分能力都需要基于Service Worker来连接和使用。
-        在index.html中注册Service Worker
+        2.1、创建service worker文件sw.js
+        2.2、在index.html中注册Service Worker
+        2.3、浏览器访问：http://127.0.0.1:8080/
+    若1、2步骤失败的可查看：https://zhuanlan.zhihu.com/p/28161855
+    3、尝试PWA对网络层的控制
+        网络层拦截图片
+        http://127.0.0.1:8080/network.jpg
+    4、定制 404 页面
+        创建一个404页面custom404.html
+        http://127.0.0.1:8080/xx
+    5、离线可用
+        根据网站结构，主要对资源进行离线化
+    6、添加到主屏幕
+        创建应用清单文件manifest.json
         
+
 🍎 从web获取内容
     fetch方法的第一个参数是强制必传的， 可以包含一个request对象，也可以包含一个相对路径或者绝对路径的URL字符串。第二个参数是可选的，可以包含一个对象，里面是请求的选项。
 🍎 捕获离线请求

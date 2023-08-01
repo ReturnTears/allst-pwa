@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>allst-pwa</title>
-    <link rel="manifest" href="./src/assets/manifest.json"/>
+    <!-- <link rel="manifest" href="./src/assets/manifest.json"/> -->
+    <link rel="manifest" href="manifest.json"/>
   </head>
   <body>
     <h1>第一个PWA</h1>
     <div id="app"></div>
   </body>
   <script type="module">
-    navigator.serviceWorker.register("sw.js")
+    navigator.serviceWorker
+    .register("sw.js")
     .then(() => {
-      console.log('sw.js 注册成功')
+      console.log('sw.js 注册成功');
     }).catch(e => {
-      console.log('sw.js 注册失败', e)
+      console.log('sw.js 注册失败', e);
     })
   </script>
 </html>
