@@ -9,6 +9,22 @@
   </head>
   <body>
     <h1>第一个PWA</h1>
+    <h2>MY FIRST PWA</h2>
+    <div>
+      <h3>主线程和Worker线程的消息通信</h3>
+      <button id="send">发送消息</button>
+      <script>
+        const worker = new Worker("worker.js")
+        document.getElementById("send").onclick = () => {
+          worker.postMessage({
+            type: "send"
+          });
+        };
+        worker.onmessage = e => {
+          console.log("收到 worker 消息", e.data)
+        };
+      </script>
+    </div>
     <div id="app"></div>
   </body>
   <script type="module">

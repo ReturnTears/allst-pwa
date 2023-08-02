@@ -7,5 +7,29 @@
     </head>
     <body>
         <h2>您访问的页面不在了....</h2>
+        <div>
+            <h3>同页面的Web Worker</h3>
+            <button id="send">发送消息</button>
+            <script id="webworker" type="app/webworker">
+                self.onmessage = e => {
+                    console.log("收到 index.html 消息", e.data);
+                    if (e.data.type === "send") {
+                        self.postMessage("received")
+                    }
+                }
+            </script>
+            <script>
+                const blob = new Blob([document.getElementById("webworker").textContent]);
+                const url = window.URL.createObjectURL(blob);
+                document.getElementById("send").onclick = () => {
+                    worker.postMessage({
+                        type: "send"
+                    });
+                };
+                worker.onmessage = e => {
+                    console.log("收到 worker 消息", e.data)
+                };
+            </script>
+        </div>
     </body>
 </html>
