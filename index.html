@@ -24,16 +24,37 @@
           console.log("收到 worker 消息", e.data)
         };
       </script>
+      <button id="unReg">注销Service Worker线程</button>
     </div>
     <div id="app"></div>
   </body>
   <script type="module">
+    "serviceWorker" in navigator &&
     navigator.serviceWorker
-    .register("sw.js")
-    .then(() => {
-      console.log('sw.js 注册成功');
+    .register("sw.js", {
+      scope: "./",
+      updateViaCache: "none"
+    })
+    .then((swReg) => {
+      console.log('sw.js 注册成功' + swReg);
     }).catch(e => {
       console.log('sw.js 注册失败', e);
     })
+    // 注销
+    if ("serviceWorker" in navigator) {
+      document.getElementById("unReg").onclick = () => {
+        navigator.serviceWorker.getRegistration()
+          .then(swReg => {
+            if (!swReg) {
+              return Promise.resolve(true);
+            }
+            return swReg.unregister();
+          }).then(result => {
+            if (result) {
+              console.log('卸载成功')
+            }
+          })
+      }
+    }
   </script>
 </html>

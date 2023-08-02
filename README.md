@@ -181,4 +181,7 @@ service worker可以监听并响应在其控制之下的所有页面的事件。
             // executor
         });
     
+🍎  PWA的核心桥梁：Service Worker
+    Service指的是服务，Worker指的是后台线程，也就是指运行在浏览器后台的一个线程服务，属于Web Worker的增强版。
+    
 ```
