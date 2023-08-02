@@ -18,6 +18,7 @@ self.addEventListener('activate', event => {
   clients.claim()
   console.log('准备就绪...') // 立即受控
 })
+console.log("========> 这里是sw.js ");
 self.addEventListener('fetch', event => {
   if (/network\.jpg$/.test(event.request.url)) {
     return event.respondWith(fetch('./src/assets/pwa.jpg'))

@@ -37,6 +37,16 @@
     })
     .then((swReg) => {
       console.log('sw.js 注册成功' + swReg);
+      // 实时获取当前Service Worker线程的状态。
+      swReg.onupdatefound = () => {
+        const workerInstalling = swReg.installing;
+        if (!workerInstalling) {
+          return;
+        }
+        workerInstalling.onstatechange = () => {
+          console.log('=====> worker 状态 : ' + workerInstalling.state);
+        }
+      }
     }).catch(e => {
       console.log('sw.js 注册失败', e);
     })
