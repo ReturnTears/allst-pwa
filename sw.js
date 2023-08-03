@@ -1,4 +1,5 @@
 const CACHE_NAME = 'pwa'  // 定义缓存名称
+var installPromptEvent = null;
 self.addEventListener('install', event => {
   console.log('安装事件...')
   self.skipWaiting()  // 等待跳过
@@ -53,3 +54,24 @@ self.addEventListener('fetch', event => {
     })
   )
 })
+self.addEventListener('beforeinstallprompt', event => {
+  event.preventDefault();
+  installPromptEvent = event;
+  // document.querySelector('#btn-install').disabled = false;
+  document.querySelector('#btn-install').addEventListener('click', event => {
+    if (!installPromptEvent) {
+      return;
+    }
+    installPromptEvent.prompt();
+    installPromptEvent.userChoice.then(choiceResult => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('用户已同意添加到桌面');
+      } else {
+        console.log('用户已取消添加到桌面');
+      }
+    })
+  })
+})
+self.addEventListener('appinstalled', event => {
+  console.log('已安装到桌面屏幕')
+});

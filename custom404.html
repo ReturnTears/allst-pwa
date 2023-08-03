@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./favicon.ico"/>
         <title>404</title>
     </head>
     <body>
@@ -21,6 +22,7 @@
             <script>
                 const blob = new Blob([document.getElementById("webworker").textContent]);
                 const url = window.URL.createObjectURL(blob);
+                const worker = new Worker(url);
                 document.getElementById("send").onclick = () => {
                     worker.postMessage({
                         type: "send"

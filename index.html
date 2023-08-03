@@ -3,9 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="MY IOS PWA">
+    <meta name="apple-mobile-web-app-status-bar-style" content="red">
     <title>allst-pwa</title>
     <!-- <link rel="manifest" href="./src/assets/manifest.json"/> -->
+    <link rel="icon" href="./favicon.ico"/>
+    <link rel="apple-touch-icon" href="./favicon.ico"/>
+    <link rel="apple-touch-startup-image" href="./favicon.ico"/>
     <link rel="manifest" href="manifest.json"/>
+    <script src="https://unpkg.com/pwacompat@2.0.9/pwacompat.min.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <h1>第一个PWA</h1>
@@ -25,8 +31,12 @@
         };
       </script>
       <button id="unReg">注销Service Worker线程</button>
+      <br/>
+      <a href="https://www.baidu.com/">Go to Baidu</a>
     </div>
-    <div id="app"></div>
+    <div id="app">
+      <img src="./src/assets/pwa.png" width="300" height="300">
+    </div>
   </body>
   <script type="module">
     "serviceWorker" in navigator &&
